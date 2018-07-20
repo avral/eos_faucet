@@ -6,10 +6,11 @@ Service for create accounts in eos blockchain.
 
 ## Run Docker image
 1. Create .env file
-2. upgrade database `docker-compose --rm upgrade`
-3. create user for admin page `docker-compose --rm base python manage.py createsuperuser`
-3. app lisen you requests on `http://127.0.0.1:8000`
-4. admin page: `http://127.0.0.1:8000/admin/`
+2. upgrade database `docker-compose run --rm upgrade`
+3. create user for admin page `docker-compose run --rm base python manage.py createsuperuser`
+4. run web service `docker-compose up web`
+5. app lisen you requests on `http://127.0.0.1:8000`
+6. admin page: `http://127.0.0.1:8000/admin/`
 
 
 ## Api methods
@@ -40,8 +41,3 @@ REGISTRATOR_WIF=5JXi2..
 
 TWILLIO_SID=..
 TWILLIO_TOKEN=..
-```
-
-## request example
-````
-http :8000/account name=adf owner_pub=<owner pub key> active_pub=<active pub key>

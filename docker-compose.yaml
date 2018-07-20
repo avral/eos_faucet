@@ -18,7 +18,7 @@ services:
   upgrade:
     restart: unless-stopped
     extends: base
-    command: python manage.py migrate
+    command: bash -c "mkdir -p data/db && python manage.py migrate"
 
   web:
     restart: unless-stopped
