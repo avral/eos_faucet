@@ -1,0 +1,30 @@
+version: '2'
+services:
+  base:
+    restart: unless-stopped
+    build: .
+    env_file: .env
+    environment:
+      REGISTRATOR_NAME:
+      REGISTRATOR_WIF:
+
+      TWILLIO_SID:
+      TWILLIO_TOKEN:
+
+      DEBUG: "false"
+    volumes:
+      - ./data:/app/data/
+
+  upgrade:
+    restart: unless-stopped
+    extends: base
+    command: python manage.py migrate
+
+  web:
+    restart: unless-stopped
+    extends: base
+    environment:
+      DEBUG: 'false'
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - '8000:8000'

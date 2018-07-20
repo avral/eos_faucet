@@ -1,2 +1,6 @@
 git+https://github.com/eosmoto/eosiopy
 apistar
+Django==2.0.7
+djangorestframework==3.8.2
+phonenumbers==8.9.10
+twilio==6.14.10

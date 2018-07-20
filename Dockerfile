@@ -4,9 +4,10 @@ add requirements.txt /app/
 workdir /app
 run pip install -r requirements.txt
 
+run curl -sL https://deb.nodesource.com/setup_10.x | bash -
+run apt-get install -y nodejs
+run npm install --save tcjs
+
+EXPOSE 8000
+
 add . /app
-
-expose 5000
-
-env HOST=0.0.0.0
-cmd python app.py
