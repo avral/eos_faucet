@@ -1,5 +1,5 @@
 {
   "dependencies": {
-    "tcjs": "^15.0.7"
+    "eosjs": "^16.0.0",
   }
 }
