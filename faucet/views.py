@@ -26,14 +26,18 @@ class AccountView(APIView):
             if 'transaction' in tx_result:
                 Account.objects.update_or_create(
                     name=data['account'],
-                    number=data['number'],
-                    is_created=True
+                    defaults={
+                        'number': data['number'],
+                        'is_created': True
+                    }
                 )
             else:
                 Account.objects.update_or_create(
                     name=data['account'],
-                    number=data['number'],
-                    err_msg=json.dumps(tx_result)
+                    defaults={
+                        'number': data['number'],
+                        'err_msg': json.dumps(tx_result)
+                    }
                 )
 
         return Response(tx_result)

@@ -1,15 +1,19 @@
-let Eos = require('tcjs');
+let Eos = require('eosjs');
 let fs = require('fs');
 
-let httpEndpoint = 'https://eost.travelchain.io';
-let chainId = '45a05637a49d4d0a304f5d8f553eb7792cad6525d8664de30f0234c630520c60';
-
+let httpEndpoint = process.env.EOS_NODE_URL;
+let chainId = process.env.EOS_NODE_CHAIN_ID;
 let creator = process.env.REGISTRATOR_NAME;
 
 
 let newaccount = process.argv[2];
 let owner_key = process.argv[3];
 let active_key = process.argv[4];
+
+// FOR TEST
+//let newaccount = 'lololol.tc';
+//let owner_key = 'EOS7YHYVETD44VTFdjYCBtpVuiNfdZmSqqnGGKwgKPqvoBaHfuNxk';
+//let active_key = 'EOS7YHYVETD44VTFdjYCBtpVuiNfdZmSqqnGGKwgKPqvoBaHfuNxk';
 
 let keyProvider = [process.env.REGISTRATOR_WIF];
 
@@ -25,13 +29,13 @@ eos.transaction(tr => {
   tr.buyrambytes({
     payer: creator,
     receiver: newaccount,
-    bytes: 4000
+    bytes: 8192
   })
   tr.delegatebw({
     from: creator,
     receiver: newaccount,
-    stake_net_quantity: '10.0000 TT',
-    stake_cpu_quantity: '10.0000 TT',
+    stake_net_quantity: '1.0000 TT',
+    stake_cpu_quantity: '1.0000 TT',
     transfer: 1
   })
 })

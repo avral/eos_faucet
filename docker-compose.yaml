@@ -4,14 +4,6 @@ services:
     restart: unless-stopped
     build: .
     env_file: .env
-    environment:
-      REGISTRATOR_NAME:
-      REGISTRATOR_WIF:
-
-      TWILLIO_SID:
-      TWILLIO_TOKEN:
-
-      DEBUG: "false"
     volumes:
       - ./data:/app/data/
 
@@ -23,8 +15,7 @@ services:
   web:
     restart: unless-stopped
     extends: base
-    environment:
-      DEBUG: 'false'
-    command: python manage.py runserver 0.0.0.0:8000
+    command: gunicorn eos_faucet.wsgi -b 0.0.0.0:8000 --workers=4 --timeout=120 --log-level=debug
+
     ports:
       - '8000:8000'
