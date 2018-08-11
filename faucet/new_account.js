@@ -1,8 +1,8 @@
-let Eos = require('tcjs');
+let Eos = require('eosjs');
 let fs = require('fs');
 
 let httpEndpoint = 'https://eost.travelchain.io';
-let chainId = '45a05637a49d4d0a304f5d8f553eb7792cad6525d8664de30f0234c630520c60';
+let chainId = '0443d062bb782b32bdc07a65273e1696c9a28749c047124927c7160897cacd28';
 
 let creator = process.env.REGISTRATOR_NAME;
 
