@@ -6,7 +6,7 @@ run pip install -r requirements.txt
 
 run curl -sL https://deb.nodesource.com/setup_10.x | bash -
 run apt-get install -y nodejs
-run npm install --save tcjs
+run npm install --save eosjs
 
 EXPOSE 8000
 
