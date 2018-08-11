@@ -2,7 +2,7 @@
 Service for create accounts in eos blockchain.
 
 ## Build Docker image
-`docker build -t eos_faucet .`
+`docker-compose build`
 
 ## Run Docker image
 1. Create .env file
